@@ -10,21 +10,29 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <View style={estilo.container}>
-        <Text>Usuario</Text>
-      <input {...register("example")} />
-        <Text>Endereço</Text>
-      <input {...register("example")} />
-        <Text>Telefone</Text>
-      <input {...register("example")} />
-        <Text>Documento</Text>
-      <input {...register("example")} />
-        <Text>E-mail</Text>
-      <input {...register("example")} />
-        <Text>Senha</Text>
-      <input {...register("exampleRequired", { required: true })} />
+    <View>
+      <View  style={estilo.container}>
+        <View style={{ flexDirection:"row" }}>
+          <Text>Usuario</Text>
+            <input {...register("example")} />
+          <Text>Endereço</Text>
+            <input {...register("example")} />
+        </View>
+        <View style={{ flexDirection:"row" }}>
+          <Text>Telefone</Text>
+            <input {...register("example")} />
+          <Text>Documento</Text>
+            <input {...register("example")} />
+        </View>
+        <View>
+          <Text>E-mail</Text>
+            <input {...register("example")} />
+          <Text>Senha</Text>
+            <input {...register("exampleRequired", { required: true })} />
+        </View>
       {errors.exampleRequired && <span>Esse campo é obrigatório</span>}
       </View>
+    </View>
       
 
     <TouchableOpacity style={estilo.cadastro} onPress={"submit"}>
@@ -38,8 +46,6 @@ export default function App() {
 const estilo = StyleSheet.create({
 container:{
   flex:1,
-  justifyContent: 'left',
-  textAlign: 'left',
 },
 cadastro:{
   margin:10,
