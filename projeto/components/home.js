@@ -114,6 +114,7 @@ const estilo = StyleSheet.create({
     paddingLeft: 45,
     paddingRight: 45,
     
+    
   },
   imagem: {
     width: null,
