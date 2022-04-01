@@ -15,42 +15,49 @@ import {
   TextInput,
   Appearance,
 } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, FontAwesome } from '@expo/vector-icons';
 
 export default function App(props) {
 
   return (
-  <View>
-      <View>
-        <Image style={estilo.imagem} source={require('../assets/pc.png')} />
-      </View>
       <View style={estilo.container}>
-        <TouchableOpacity
-          style={estilo.botao}
-          onPress={() => {
-            props.navigation.navigate('Principal');
-          }}>
-          <Text>Logar</Text>
-        </TouchableOpacity>
-    
+        <View style={estilo.top}>
+          <Text>King of Computation</Text>
+          <FontAwesome
+            name="user-circle-o"
+            size={24}
+            color="black"
+            onPress={() => {
+              props.navigation.navigate('Perfil');
+            }}
+          />
+        </View>
+
         <View style={{ flexDirection: 'row' }}>
           <TouchableOpacity
-            style={estilo.senha}
+            style={estilo.botao}
             onPress={() => {
-              props.navigation.navigate('Recuperar');
+              props.navigation.navigate('Principal');
             }}>
-            <Text>Esqueceu sua senha?</Text>
+            <Text>Alterar</Text>
           </TouchableOpacity>
-
           <TouchableOpacity
-            style={estilo.cadastro}
+            style={estilo.botao}
             onPress={() => {
-              props.navigation.navigate('Cadastro');
+              props.navigation.navigate('Principal');
             }}>
-            <Text>Cadastre-se</Text>
+            <Text>Deletar</Text>
           </TouchableOpacity>
         </View>
-      </View>
+        <View style={estilo.sair}>
+          <TouchableOpacity
+            style={estilo.botao}
+            onPress={() => {
+              props.navigation.navigate('Principal');
+            }}>
+            <Text>Sair</Text>
+          </TouchableOpacity>
+        </View>
       </View>
   );
 }
@@ -71,40 +78,16 @@ const estilo = StyleSheet.create({
     shadowOpacity: 0.2,
     elevation: 1,
   },
-  cadastro: {
+  caixa: {
     margin: 10,
     padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 10,
+    backgroundColor: '#FFF',
+    borderRadius: 5,
     textAlign: 'center',
-    width: 140,
-    height: 50,
     shadowColor: '#470000',
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.2,
     elevation: 1,
-  },
-  senha: {
-    margin: 10,
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    textAlign: 'center',
-    width: 150,
-    height: 50,
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
-  },
-  titulo: {
-    padding: 10,
-    fontSize: 18,
-  },
-  imagem: {
-    width: null,
-    height: 300,
-    resizeMode: 'cover',
   },
   barras: {
     margin: 10,

@@ -3,13 +3,9 @@ import {View, Text, StyleSheet, Image, ScrollView,TouchableOpacity,TextInput} fr
 import { useForm } from "react-hook-form";
 
 export default function App(props) {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-
-  console.log(watch("example"));
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <View>
       <View style={estilo.container}>
         <Text>Digite o seu E-mail</Text>
       
@@ -19,8 +15,7 @@ export default function App(props) {
     <TouchableOpacity style={estilo.cadastro} onPress={()=>{props.navigation.navigate('Recuperar')}}>
       <Text >Recuperar senha</Text>
     </TouchableOpacity>
-     </form>
-
+    </View>
   );
 }
 

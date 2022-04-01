@@ -15,41 +15,37 @@ import {
   TextInput,
   Appearance,
 } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign,FontAwesome } from '@expo/vector-icons';
 
 export default function App(props) {
 
   return (
-  <View>
-      <View>
-        <Image style={estilo.imagem} source={require('../assets/pc.png')} />
-      </View>
+    <View>
       <View style={estilo.container}>
+        <View style={estilo.top}>
+          <Text>King of Computation</Text>
+          <FontAwesome name="user-circle-o" size={24} color="black" onPress={() => {
+            props.navigation.navigate('Perfil');
+          }} />
+        </View>
         <TouchableOpacity
           style={estilo.botao}
           onPress={() => {
             props.navigation.navigate('Principal');
           }}>
-          <Text>Logar</Text>
+          <Text>Faça seu agendamento</Text>
         </TouchableOpacity>
-    
-        <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity
-            style={estilo.senha}
-            onPress={() => {
-              props.navigation.navigate('Recuperar');
-            }}>
-            <Text>Esqueceu sua senha?</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={estilo.cadastro}
-            onPress={() => {
-              props.navigation.navigate('Cadastro');
-            }}>
-            <Text>Cadastre-se</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={estilo.botao}
+          onPress={() => {
+            props.navigation.navigate('Principal');
+          }}>
+          <Text>Consulte seu agendamento</Text>
+        </TouchableOpacity>
+        <View style={{ flexDirection: 'row' }}></View>
+      </View>
+      <View>
+        <Image style={estilo.imagem} source={require('../assets/pc.png')} />
       </View>
       </View>
   );

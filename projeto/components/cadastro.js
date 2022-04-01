@@ -11,18 +11,9 @@ import {
 import { useForm } from 'react-hook-form';
 
 export default function App() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-
-  console.log(watch('example'));
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <View>
       <View>
         <View style={estilo.container}>
           <View style={{ flexDirection: 'row' }}>
@@ -55,15 +46,13 @@ export default function App() {
             <Text>Senha</Text>
             <TextInput style={estilo.input1} />
           </View>
-
-          {errors.exampleRequired && <span>Esse campo é obrigatório</span>}
         </View>
       </View>
 
       <TouchableOpacity style={estilo.cadastro} onPress={'submit'}>
         <Text>Cadastre-se</Text>
       </TouchableOpacity>
-    </form>
+      </View>
   );
 }
 
