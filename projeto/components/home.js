@@ -15,50 +15,65 @@ import {
   TextInput,
   Appearance,
 } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
 
 export default function App(props) {
-
   return (
-  <View>
+    <ScrollView>
       <View>
-        <Image style={estilo.imagem} source={require('../assets/pc.png')} />
-      </View>
-      <View style={estilo.container}>
-        <TouchableOpacity
-          style={estilo.botao}
-          onPress={() => {
-            props.navigation.navigate('Principal');
-          }}>
-          <Text>Logar</Text>
-        </TouchableOpacity>
-    
-        <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity
-            style={estilo.senha}
-            onPress={() => {
-              props.navigation.navigate('Recuperar');
-            }}>
-            <Text>Esqueceu sua senha?</Text>
-          </TouchableOpacity>
+        <View>
+          <Image style={estilo.imagem} source={require('../assets/pc.png')} />
+        </View>
+
+        <View style={estilo.container}>
+          <View style={estilo.usuario}>
+            <Text style={estilo.titulo}>Usuario</Text>
+            <TextInput style={estilo.barras} />
+          </View>
+          <View>
+            <Text style={estilo.titulo}>Senha</Text>
+            <TextInput style={estilo.barras} />
+          </View>
 
           <TouchableOpacity
-            style={estilo.cadastro}
+            style={estilo.botao}
             onPress={() => {
-              props.navigation.navigate('Cadastro');
+              props.navigation.navigate('Principal');
             }}>
-            <Text>Cadastre-se</Text>
+            <Text style={estilo.logar}>Logar</Text>
           </TouchableOpacity>
+
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity
+              style={estilo.esqueceu}
+              onPress={() => {
+                props.navigation.navigate('Recuperar');
+              }}>
+              <Text style={estilo.senha}>Esqueceu sua senha?</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={estilo.cadastro}
+              onPress={() => {
+                props.navigation.navigate('Cadastro');
+              }}>
+              <Text style={estilo.logar}>Cadastre-se</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-      </View>
+    </ScrollView>
   );
 }
 
 const estilo = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#00000',
+    height: responsiveHeight(50), // 50% of window height
+    width: responsiveWidth(50), // 50% of window width
   },
   botao: {
     margin: 10,
@@ -70,15 +85,17 @@ const estilo = StyleSheet.create({
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.2,
     elevation: 1,
+    height: responsiveHeight(6),
+    width: responsiveWidth(90),
   },
   cadastro: {
     margin: 10,
-    padding: 10,
+    padding: 15,
     backgroundColor: 'white',
     borderRadius: 10,
     textAlign: 'center',
-    width: 140,
-    height: 50,
+   height: responsiveHeight(8),
+    width: responsiveWidth(40),
     shadowColor: '#470000',
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.2,
@@ -90,8 +107,8 @@ const estilo = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 10,
     textAlign: 'center',
-    width: 150,
-    height: 50,
+    height: responsiveHeight(8),
+    width: responsiveWidth(40),
     shadowColor: '#470000',
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.2,
@@ -102,8 +119,8 @@ const estilo = StyleSheet.create({
     fontSize: 18,
   },
   imagem: {
-    width: null,
-    height: 300,
+    height: responsiveHeight(50),
+    width: responsiveWidth(100),
     resizeMode: 'cover',
   },
   barras: {
@@ -112,11 +129,14 @@ const estilo = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 10,
     textAlign: 'left',
-    width: 300,
-    height: 50,
+    height: responsiveHeight(6),
+    width: responsiveWidth(90),
     shadowColor: '#470000',
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.2,
     elevation: 1,
   },
+  logar:{
+    textAlign: 'center',
+  }
 });
