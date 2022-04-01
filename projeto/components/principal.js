@@ -16,6 +16,11 @@ import {
   Appearance,
 } from 'react-native';
 import { AntDesign,FontAwesome } from '@expo/vector-icons';
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
 
 export default function App(props) {
 
