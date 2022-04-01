@@ -6,8 +6,18 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  KeyboardView,
+  Title,
+  Container,
+  Input,
+  ButtonSubmit,
+  TextButton,
+  TextInput,
+  Appearance
 } from 'react-native';
 import { useForm } from 'react-hook-form';
+
+
 
 export default function App(props) {
   const {
@@ -28,27 +38,25 @@ export default function App(props) {
       <View style={estilo.container}>
         <View style={estilo.titulo}>
           <Text style={estilo.titulo}>Usuario</Text>
-
-          <input {...register('example')} />
-
+          <TextInput style={estilo.barras} />
           <Text style={estilo.titulo}>Senha</Text>
-
-          <input {...register('exampleRequired', { required: true })} />
-          {errors.exampleRequired && <span>Esse campo é obrigatório</span>}
+          <TextInput style={estilo.barras} />
         </View>
 
         <TouchableOpacity
           style={estilo.botao}
           onPress={() => {
-            props.navigation.navigate('Hardware');
+            props.navigation.navigate('');
           }}>
           <Text>Logar</Text>
         </TouchableOpacity>
+
         <View style={{ flexDirection: 'row' }}>
+        
           <TouchableOpacity
             style={estilo.senha}
             onPress={() => {
-              props.navigation.navigate('Hardware');
+              props.navigation.navigate('Recuperar');
             }}>
             <Text>Esqueceu sua senha?</Text>
           </TouchableOpacity>
@@ -59,6 +67,7 @@ export default function App(props) {
               props.navigation.navigate('Cadastro');
             }}>
             <Text>Cadastre-se</Text>
+            
           </TouchableOpacity>
         </View>
       </View>
@@ -69,7 +78,7 @@ export default function App(props) {
 const estilo = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#00000',
   },
   botao: {
     margin: 10,
@@ -109,16 +118,25 @@ const estilo = StyleSheet.create({
     elevation: 1,
   },
   titulo: {
+    padding: 10,
     fontSize: 18,
-    textAlign: 'center',
-    paddingLeft: 45,
-    paddingRight: 45,
-    
-    
   },
   imagem: {
     width: null,
     height: 300,
     resizeMode: 'cover',
+  },
+  barras: {
+    margin: 10,
+    padding: 10,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    textAlign: 'left',
+    width: 300,
+    height: 50,
+    shadowColor: '#470000',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    elevation: 1,
   },
 });

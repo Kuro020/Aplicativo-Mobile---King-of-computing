@@ -19,38 +19,43 @@ export default function App() {
   } = useForm();
   const onSubmit = (data) => console.log(data);
 
-  console.log(watch('example')); // watch input value by passing the name of it
+  console.log(watch('example'));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <View>
         <View style={estilo.container}>
           <View style={{ flexDirection: 'row' }}>
-            <View style={{ flexDirection: 'column' }} style={estilo.jj}>
+            <View style={{ flexDirection: 'column' }} styles={estilo.j1}>
               <Text>Usuario</Text>
               <TextInput style={estilo.input} />
             </View>
+
             <View style={{ flexDirection: 'column' }}>
               <Text>Endereço</Text>
               <TextInput style={estilo.input} />
             </View>
           </View>
+
           <View style={{ flexDirection: 'row' }}>
-            <View style={{ flexDirection: 'column' }}>
+            <View style={{ flexDirection: 'column' }} styles={estilo.jj}>
               <Text>Telefone</Text>
               <TextInput style={estilo.input} />
             </View>
-            <View style={{ flexDirection: 'column' }}>
+
+            <View style={{ flexDirection: 'column' }} styles={estilo.jj}>
               <Text>CPF</Text>
               <TextInput style={estilo.input} />
             </View>
           </View>
+
           <View>
             <Text>E-mail</Text>
-            <TextInput style={estilo.input} />
+            <TextInput style={estilo.input1} />
             <Text>Senha</Text>
-            <TextInput style={estilo.input} />
+            <TextInput style={estilo.input1} />
           </View>
+
           {errors.exampleRequired && <span>Esse campo é obrigatório</span>}
         </View>
       </View>
@@ -70,15 +75,47 @@ const estilo = StyleSheet.create({
     margin: 10,
     padding: 10,
     backgroundColor: 'white',
-    borderRadius: 5,
+    borderRadius: 10,
+    textAlign: 'left',
+    width: 150,
+    height: 50,
+    shadowColor: '#470000',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    elevation: 1,
   },
   input: {
-    height: 5,
-    borderWidth: 1,
-    padding: 15,
+    margin: 10,
+    padding: 10,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    textAlign: 'left',
+    width: 150,
+    height: 50,
+    shadowColor: '#470000',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    elevation: 1,
   },
-  jj:{
-    paddingRight: 15,
-    paddingLeft: 10,
+  input1: {
+    margin: 10,
+    padding: 10,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    textAlign: 'left',
+    width: 320,
+    height: 50,
+    shadowColor: '#470000',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    elevation: 1,
+  },
+  jj: {
+    paddingRight: 5,
+    paddingLeft: 1,
+  },
+  j1: {
+    paddingLeft: 5,
+    paddingRight: 5,
   },
 });
