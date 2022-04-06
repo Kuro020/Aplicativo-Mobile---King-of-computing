@@ -16,20 +16,44 @@ import {
 } from 'react-native-responsive-dimensions';
 
 export default function App() {
-
   return (
-    <View>
-      <View>
-        <View style={estilo.container}>
-          <View style={{ flexDirection: 'row' }}>
-            <View style={{ flexDirection: 'column' }} styles={estilo.usuario}>
-              <Text style={estilo.titulo}>Usuario</Text>
-              <TextInput style={estilo.input} />
-            </View>
-</View>
-</View>
-</View>
+    <ScrollView>
+      <View style={estilo.container}>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ flexDirection: 'column' }}>
+            <Text style={estilo.titulo}>Nome</Text>
+            <TextInput style={estilo.barras} />
+          </View>
+          <View style={{ flexDirection: 'column' }}>
+            <Text style={estilo.titulo}>Endereço</Text>
+            <TextInput style={estilo.barras} />
+          </View>
+        </View>
+        <View style={{ flexDirection: 'row' }}>
+          <View style={{ flexDirection: 'column' }}>
+            <Text style={estilo.titulo}>Telefone</Text>
+            <TextInput style={estilo.barras} />
+          </View>
+          <View style={{ flexDirection: 'column' }}>
+            <Text style={estilo.titulo}>Documento</Text>
+            <TextInput style={estilo.barras} />
+          </View>
+        </View>
+        <Text style={estilo.titulo}>E-mail</Text>
+        <TextInput style={estilo.barras2} />
+        <Text style={estilo.titulo}>Senha</Text>
+        <TextInput style={estilo.barras2} />
       </View>
+      <View>
+        <TouchableOpacity
+          style={estilo.cadastro}
+          onPress={() => {
+            props.navigation.navigate('Home');
+          }}>
+          <Text style={estilo.logar}>Cadastre-se</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
 
@@ -37,51 +61,35 @@ const estilo = StyleSheet.create({
   container: {
     flex: 1,
   },
-  cadastro: {
-    margin: 10,
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    textAlign: 'left',
-     height: responsiveHeight(8),
-    width: responsiveWidth(40),
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
-  },
-  input: {
-    margin: 10,
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    textAlign: 'left',
-    height: responsiveHeight(8),
-    width: responsiveWidth(40),
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
-  },
-  input1: {
-    margin: 10,
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    textAlign: 'left',
-    height: responsiveHeight(8),
-    width: responsiveWidth(40),
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
-  },
-  jj: {
-    paddingRight: 5,
-    paddingLeft: 1,
-  },
-   titulo: {
+  titulo: {
     padding: 10,
     fontSize: 18,
+  },
+  barras: {
+    margin: 10,
+    padding: 10,
+    backgroundColor: '#DCDCDC',
+    borderRadius: 10,
+    textAlign: 'left',
+    height: responsiveHeight(6),
+    width: responsiveWidth(42),
+  },
+  barras2: {
+    margin: 10,
+    padding: 10,
+    backgroundColor: '#DCDCDC',
+    borderRadius: 10,
+    textAlign: 'left',
+    height: responsiveHeight(6),
+    width: responsiveWidth(90),
+  },
+  cadastro: {
+    margin: 10,
+    padding: 15,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    textAlign: 'center',
+    height: responsiveHeight(8),
+    width: responsiveWidth(42),
   },
 });

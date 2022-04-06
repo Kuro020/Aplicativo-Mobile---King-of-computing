@@ -38,6 +38,7 @@ export default function App(props) {
             <Text style={estilo.titulo}>Senha</Text>
             <TextInput style={estilo.barras} />
           </View>
+               <View style={{ flexDirection: 'row' }}>
 
           <TouchableOpacity
             style={estilo.botao}
@@ -47,21 +48,14 @@ export default function App(props) {
             <Text style={estilo.logar}>Logar</Text>
           </TouchableOpacity>
 
-          <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity
-              style={estilo.esqueceu}
-              onPress={() => {
-                props.navigation.navigate('Recuperar');
-              }}>
-              <Text style={estilo.senha}>Esqueceu sua senha?</Text>
-            </TouchableOpacity>
+     
 
             <TouchableOpacity
               style={estilo.cadastro}
               onPress={() => {
                 props.navigation.navigate('Cadastro');
               }}>
-              <Text style={estilo.logar}>Cadastre-se</Text>
+              <Text>Cadastre-se</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -72,36 +66,11 @@ export default function App(props) {
 
 const estilo = StyleSheet.create({
   container: {
-    height: responsiveHeight(50), // 50% of window height
-    width: responsiveWidth(50), // 50% of window width
+    flex:1,
+    height: responsiveHeight(50),
+    width: responsiveWidth(50),
   },
   botao: {
-    margin: 10,
-    padding: 10,
-    backgroundColor: '#FFF',
-    borderRadius: 5,
-    textAlign: 'center',
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
-    height: responsiveHeight(6),
-    width: responsiveWidth(90),
-  },
-  cadastro: {
-    margin: 10,
-    padding: 15,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    textAlign: 'center',
-   height: responsiveHeight(8),
-    width: responsiveWidth(42),
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
-  },
-  senha: {
     margin: 10,
     padding: 10,
     backgroundColor: 'white',
@@ -110,9 +79,24 @@ const estilo = StyleSheet.create({
     height: responsiveHeight(8),
     width: responsiveWidth(42),
     shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
+    shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.2,
     elevation: 1,
+    
+  },
+  cadastro: {
+    margin: 10,
+    padding: 15,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    textAlign: 'center',
+    height: responsiveHeight(8),
+    width: responsiveWidth(42),
+    shadowColor: '#470000',
+    shadowOffset: { width: 3, height: 3 },
+    shadowOpacity: 0.2,
+    elevation: 1,
+   
   },
   titulo: {
     padding: 10,
@@ -122,6 +106,8 @@ const estilo = StyleSheet.create({
     height: responsiveHeight(50),
     width: responsiveWidth(100),
     resizeMode: 'cover',
+      borderRadius: 10,
+      borderColor: '#4CA5B3',
   },
   barras: {
     margin: 10,
@@ -132,11 +118,8 @@ const estilo = StyleSheet.create({
     height: responsiveHeight(6),
     width: responsiveWidth(90),
     shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
+    shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.2,
     elevation: 1,
   },
-  logar:{
-    textAlign: 'center',
-  }
 });
