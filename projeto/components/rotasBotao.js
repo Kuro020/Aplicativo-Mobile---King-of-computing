@@ -17,11 +17,7 @@ export default function rotasBotao(){
       <Stack.Navigator>
         <Stack.Screen name='Home' component={Home}/>
         <Stack.Screen name='Cadastro' component={Cadastro}/>
-<<<<<<< HEAD:projeto/components/rotasBotao.js
         <Stack.Screen name='Perfil' component={Perfil}/>
-=======
-           <Stack.Screen name='Perfil' component={Perfil}/>
->>>>>>> master:king-of-computing/components/rotasBotao.js
         <Stack.Screen name='Principal' component={Principal}/>
         <Stack.Screen name='Agendamento' component={Agendamento}/>
       </Stack.Navigator>

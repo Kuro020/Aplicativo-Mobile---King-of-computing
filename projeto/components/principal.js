@@ -24,10 +24,13 @@ import {
 
 export default function App(props) {
   return (
-    <View style={estilo.container}>
-      <View style={estilo.top}>
-        <Text style={estilo.titulo}></Text>
-        <Text style={estilo.titulo2}>King of Computing</Text>
+    <View>
+      <View style={estilo.container}>
+        <View>
+          <Text style={estilo.titulo}></Text>
+          <Text style={estilo.titulo2}>King of Computing</Text>
+        </View>
+
         <FontAwesome
           style={estilo.perfil}
           name="user-circle-o"
@@ -37,29 +40,27 @@ export default function App(props) {
             props.navigation.navigate('Perfil');
           }}
         />
-      </View>
 
-<<<<<<< HEAD:projeto/components/perfil.js
-      <View style={estilo.sair}>
+        <TouchableOpacity
+          style={estilo.botao}
+          onPress={() => {
+            props.navigation.navigate('Agendamento');
+          }}>
+          <View style={{ flexDirection: 'column' }}>
+            <Text>Faça seu agendamento</Text>
+          </View>
+        </TouchableOpacity>
+
         <TouchableOpacity
           style={estilo.botao}
           onPress={() => {
             props.navigation.navigate('Principal');
           }}>
-          <Text>Sair</Text>
+          <Text>Consulte seu agendamento</Text>
         </TouchableOpacity>
-=======
-        <View style={estilo.sair}>
-          <TouchableOpacity
-            style={estilo.botao}
-            onPress={() => {
-              props.navigation.navigate('Principal');
-            }}>
-            <Text>Sair</Text>
-          </TouchableOpacity>
-        </View>
->>>>>>> master:king-of-computing/components/perfil.js
+        <View style={{ flexDirection: 'column' }}></View>
       </View>
+      <Image style={estilo.imagem} source={require('../assets/pc.png')} />
     </View>
   );
 }
@@ -67,23 +68,14 @@ export default function App(props) {
 const estilo = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#00000',
   },
-  botao: {
-    margin: 10,
-<<<<<<< HEAD:projeto/components/perfil.js
-    padding: 15,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    textAlign: 'center',
-    height: responsiveHeight(8),
-    width: responsiveWidth(42),
-    shadowColor: '#470000',
-    shadowOffset: { width: 3, height: 3 },
-    shadowOpacity: 0.2,
-    elevation: 1,
-    bottom:120,
+
+  imagem: {
+    height: responsiveHeight(50),
+    width: responsiveWidth(100),
+    top: 280,
   },
+
   titulo: {
     margin: 1,
     padding: 1,
@@ -102,20 +94,23 @@ const estilo = StyleSheet.create({
     textAlign: 'left',
     bottom: 50,
   },
+
+  botao: {
+    margin: 10,
+    padding: 10,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    textAlign: 'center',
+    height: responsiveHeight(10),
+    width: responsiveWidth(80),
+    alignItems: 'center',
+    left: 30,
+    top: 30,
+  },
   perfil: {
     height: responsiveHeight(8),
     width: responsiveWidth(80),
     left: 290,
-    bottom: 100,
-=======
-    padding: 10,
-    backgroundColor: '#FFF',
-    borderRadius: 5,
-    textAlign: 'center',
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
->>>>>>> master:king-of-computing/components/perfil.js
+    top: 15,
   },
 });
