@@ -15,7 +15,7 @@ import {
   TextInput,
   Appearance,
 } from 'react-native';
-import { AntDesign,FontAwesome } from '@expo/vector-icons';
+import { AntDesign, FontAwesome } from '@expo/vector-icons';
 import {
   responsiveHeight,
   responsiveWidth,
@@ -23,23 +23,34 @@ import {
 } from 'react-native-responsive-dimensions';
 
 export default function App(props) {
-
   return (
     <View>
       <View style={estilo.container}>
-        <View style={estilo.top}>
-          <Text>King of Computation</Text>
-          <FontAwesome name="user-circle-o" size={24} color="black" onPress={() => {
-            props.navigation.navigate('Perfil');
-          }} />
+        <View>
+          <Text style={estilo.titulo}></Text>
+          <Text style={estilo.titulo2}>King of Computing</Text>
         </View>
+
+        <FontAwesome
+          style={estilo.perfil}
+          name="user-circle-o"
+          size={24}
+          color="black"
+          onPress={() => {
+            props.navigation.navigate('Perfil');
+          }}
+        />
+
         <TouchableOpacity
           style={estilo.botao}
           onPress={() => {
-            props.navigation.navigate('Principal');
+            props.navigation.navigate('Agendamento');
           }}>
-          <Text>Faça seu agendamento</Text>
+          <View style={{ flexDirection: 'column' }}>
+            <Text>Faça seu agendamento</Text>
+          </View>
         </TouchableOpacity>
+
         <TouchableOpacity
           style={estilo.botao}
           onPress={() => {
@@ -47,77 +58,59 @@ export default function App(props) {
           }}>
           <Text>Consulte seu agendamento</Text>
         </TouchableOpacity>
-        <View style={{ flexDirection: 'row' }}></View>
+        <View style={{ flexDirection: 'column' }}></View>
       </View>
-      <View>
-        <Image style={estilo.imagem} source={require('../assets/pc.png')} />
-      </View>
-      </View>
+      <Image style={estilo.imagem} source={require('../assets/pc.png')} />
+    </View>
   );
 }
 
 const estilo = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#00000',
   },
+
+  imagem: {
+    height: responsiveHeight(50),
+    width: responsiveWidth(100),
+    top: 280,
+  },
+
+  titulo: {
+    margin: 1,
+    padding: 1,
+    backgroundColor: 'white',
+    height: responsiveHeight(8),
+    width: responsiveWidth(100),
+    fontSize: 25,
+    textAlign: 'left',
+  },
+  titulo2: {
+    margin: 1,
+    padding: 1,
+    height: responsiveHeight(8),
+    width: responsiveWidth(100),
+    fontSize: 25,
+    textAlign: 'left',
+    bottom: 50,
+  },
+
   botao: {
     margin: 10,
     padding: 10,
-    backgroundColor: '#FFF',
-    borderRadius: 5,
-    textAlign: 'center',
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
-  },
-  cadastro: {
-    margin: 10,
-    padding: 10,
     backgroundColor: 'white',
     borderRadius: 10,
     textAlign: 'center',
-    width: 140,
-    height: 50,
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
+    height: responsiveHeight(10),
+    width: responsiveWidth(80),
+    alignItems: 'center',
+    left: 30,
+    top: 30,
   },
-  senha: {
-    margin: 10,
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    textAlign: 'center',
-    width: 150,
-    height: 50,
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
-  },
-  titulo: {
-    padding: 10,
-    fontSize: 18,
-  },
-  imagem: {
-    width: null,
-    height: 300,
-    resizeMode: 'cover',
-  },
-  barras: {
-    margin: 10,
-    padding: 10,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    textAlign: 'left',
-    width: 300,
-    height: 50,
-    shadowColor: '#470000',
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    elevation: 1,
+  perfil: {
+    height: responsiveHeight(8),
+    width: responsiveWidth(80),
+    left: 290,
+    top: 15,
   },
 });
