@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -14,6 +14,7 @@ import {
   TextButton,
   TextInput,
   Appearance,
+  FlatList
 } from 'react-native';
 import { AntDesign, FontAwesome } from '@expo/vector-icons';
 import {
@@ -21,9 +22,22 @@ import {
   responsiveWidth,
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
+const request = async (callback) => {
+  const response = await fetch(
+    'https://kingofcomputing.azurewebsites.net/v1/api.php?apicall=getCli'
+  );
+  const parsed = await response.json();
+  callback(parsed.dadosLista);
+};
 
 export default function App(props) {
+   const[registros, setRegistros] = useState([]);
+
+  useEffect(()=>{
+    request(setRegistros);
+  }, []);
   return (
+    
     <View style={estilo.container}>
       <View style={estilo.top}>
         <Text style={estilo.titulo}></Text>
@@ -37,6 +51,18 @@ export default function App(props) {
             props.navigation.navigate('Perfil');
           }}
         />
+      </View>
+
+      <View>
+       <FlatList
+        data={registros}
+        keyExtractor={(item) => item.codCli.toString()}
+        renderItem={({item})=> 
+          <Text style={estilo.itens}>
+            Nome: {item.nomeCli} {'\n'} CPF: {item.cpfCli} Telefone: {item.foneCli} Data de Nascimento: {item.dataCli} Endereço: {item.endCli}
+          </Text>
+        }
+      />
       </View>
 
       <View style={estilo.sair}>
@@ -95,4 +121,14 @@ const estilo = StyleSheet.create({
     left: 290,
     bottom: 100,
   },
+  itens:{
+    flex: 1,
+    textAlign: 'center',
+    backgroundColor: '#00BFFF',
+    paddlingVertical: 10,
+    borderRadius: 5,
+    marginHorizontal: 10,
+    marginTop: 10,
+    marginBottom: 5
+  }
 });
