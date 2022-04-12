@@ -11,6 +11,8 @@ const Agendamento = () => {
 
         <Text style={styles.titulo}> King of Computing </Text>
 
+
+<Text style={styles.titulo1}> Selecione a data de Manutenção </Text>
         <DatePicker
           style={styles.agenda}
           date={date}
@@ -100,5 +102,9 @@ const styles = StyleSheet.create({
   },
   digite:{
    fontSize:18,
+  },
+  titulo1:{
+   fontSize: 17,
+   top:140,
   },
 });

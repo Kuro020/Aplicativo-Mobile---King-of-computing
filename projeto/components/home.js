@@ -36,19 +36,16 @@ export default function App(props) {
           </View>
           <View>
             <Text style={estilo.titulo}>Senha</Text>
-            <TextInput style={estilo.barras} />
+            <TextInput secureTextEntry={true} style={estilo.barras} />
           </View>
-               <View style={{ flexDirection: 'row' }}>
-
-          <TouchableOpacity
-            style={estilo.botao}
-            onPress={() => {
-              props.navigation.navigate('Principal');
-            }}>
-            <Text style={estilo.logar}>Logar</Text>
-          </TouchableOpacity>
-
-     
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity
+              style={estilo.botao}
+              onPress={() => {
+                props.navigation.navigate('Principal');
+              }}>
+              <Text style={estilo.logar}>Logar</Text>
+            </TouchableOpacity>
 
             <TouchableOpacity
               style={estilo.cadastro}
@@ -66,7 +63,7 @@ export default function App(props) {
 
 const estilo = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     height: responsiveHeight(50),
     width: responsiveWidth(50),
   },
@@ -82,7 +79,7 @@ const estilo = StyleSheet.create({
     shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.2,
     elevation: 1,
-    
+    left: 8,
   },
   cadastro: {
     margin: 10,
@@ -96,18 +93,21 @@ const estilo = StyleSheet.create({
     shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.2,
     elevation: 1,
-   
+    left:10,
   },
   titulo: {
-    padding: 10,
+    padding: 11,
     fontSize: 18,
+    top: 15,
   },
   imagem: {
-    height: responsiveHeight(50),
-    width: responsiveWidth(100),
+    height: responsiveHeight(40),
+    width: responsiveWidth(78),
     resizeMode: 'cover',
-      borderRadius: 10,
-      borderColor: '#4CA5B3',
+    borderRadius: 10,
+    borderColor: '#4CA5B3',
+    left: 39,
+    top: 10,
   },
   barras: {
     margin: 10,
@@ -121,5 +121,6 @@ const estilo = StyleSheet.create({
     shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.2,
     elevation: 1,
+    left:8,
   },
 });

@@ -42,15 +42,15 @@ export default function App(props) {
         <Text style={estilo.titulo}>E-mail</Text>
         <TextInput style={estilo.barras2} />
         <Text style={estilo.titulo}>Senha</Text>
-        <TextInput style={estilo.barras2} />
+        <TextInput secureTextEntry={true} style={estilo.barras2} />
       </View>
       <View>
         <TouchableOpacity
-          style={estilo.cadastro}
+          style={estilo.botao}
           onPress={() => {
             props.navigation.navigate('Home');
           }}>
-          <Text style={estilo.logar}>Cadastre-se</Text>
+          <Text style={estilo.cadastro}>Cadastre-se</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -83,7 +83,7 @@ const estilo = StyleSheet.create({
     height: responsiveHeight(6),
     width: responsiveWidth(90),
   },
-  cadastro: {
+  botao: {
     margin: 10,
     padding: 15,
     backgroundColor: 'white',

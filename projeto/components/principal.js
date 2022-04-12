@@ -69,11 +69,14 @@ const estilo = StyleSheet.create({
   container: {
     flex: 1,
   },
-
   imagem: {
-    height: responsiveHeight(50),
-    width: responsiveWidth(100),
-    top: 280,
+    height: responsiveHeight(40),
+    width: responsiveWidth(81),
+    resizeMode: 'cover',
+    borderRadius: 10,
+    borderColor: '#4CA5B3',
+    left: 39,
+    top:280,
   },
 
   titulo: {
@@ -93,6 +96,7 @@ const estilo = StyleSheet.create({
     fontSize: 25,
     textAlign: 'left',
     bottom: 50,
+    left:15,
   },
 
   botao: {
